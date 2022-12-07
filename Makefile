@@ -12,7 +12,11 @@ down:
 destroy:
 	$(CMD) down --rmi all --volumes --remove-orphans
 
-wp.install:
+install:
+	@make up
+	@make install.wp
+
+install.wp:
 	$(APACHE_EXEC) bash /tmp/wp-install.sh
 
 open:

@@ -7,10 +7,10 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: mysql ${MYSQL_DATABASE} --user=${MYSQL_USER} --password="${MYSQL_PASSWORD}" -s -e "SELECT 1;"
       interval: 3s
-      retries: 20
-      timeout: 60s
+      retries: 10
+      timeout: 3s
     volumes:
       - db_store:/var/lib/mysql
   php-apache:

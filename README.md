@@ -11,33 +11,37 @@ See [Bedrock README.md](bedrock.README.md).
 
 ## Installation
 
-Pull the repository. (Change `my-bedrock-project` to your project name.)
+### Pull the repository
+
+**Note:** Change `my-bedrock-project` to your project name.
 
 ```zsh
-% git clone git@github.com:mimosafa/roots-bedrock-apache-mysql-template.git my-bedrock-project
+git clone git@github.com:mimosafa/roots-bedrock-apache-mysql-template.git my-bedrock-project
 ```
 
 Go to the project directory with `cd my-bedrock-project`.
 
-Install dependencies.
+### Install dependencies
 
 ```zsh
-% composer install
+composer install
 ```
 
-Prepare env files.
+### Prepare env files
 
 ```zsh
-% cp .env.example .env
-% cp .env.local.example .env.local
+cp .env.example .env
+cp .env.local.example .env.local
 ```
 Edit these files.
 
-Install WordPress.
+### Install WordPress
 
 ```zsh
-% make wp.install
+make install
 ```
+
+**Note:** Inside the above command, `make up` command described below is executed. Therefore, the Docker Container is already up after execution.
 
 ## Basic Usage
 
@@ -48,23 +52,23 @@ See [Makefile](Makefile) for details.
 Create and start containers:
 
 ```zsh
-% make up
+make up
 ```
 
 Stop services:
 
 ```zsh
-% make stop
+make stop
 ```
 
 Stop and remove containers, networks:
 ```zsh
-% make down
+make down
 ```
 
 Stop and remove containers, networks, images, volumes:
 ```zsh
-% make destroy
+make destroy
 ```
 
 ### Development
@@ -72,10 +76,10 @@ Stop and remove containers, networks, images, volumes:
 Open WordPress in your browser:
 
 ```zsh
-% make open
+make open
 ```
 
 Open WordPress dashboard in your browser:
 ```zsh
-% make dashboard
+make dashboard
 ```
