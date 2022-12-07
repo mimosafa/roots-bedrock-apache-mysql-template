@@ -4,32 +4,78 @@
 
 See [Bedrock README.md](bedrock.README.md).
 
-## Basic Usage
+## Requirements
 
-Prepare env files:
+- [Composer](https://getcomposer.org/)
+- Docker
+
+## Installation
+
+Pull the repository. (Change `my-bedrock-project` to your project name.)
+
+```zsh
+% git clone git@github.com:mimosafa/roots-bedrock-apache-mysql-template.git my-bedrock-project
+```
+
+Go to the project directory with `cd my-bedrock-project`.
+
+Install dependencies.
+
+```zsh
+% composer install
+```
+
+Prepare env files.
 
 ```zsh
 % cp .env.example .env
 % cp .env.local.example .env.local
 ```
+Edit these files.
 
-Container lifecycle:
+Install WordPress.
+
+```zsh
+% make wp.install
 ```
-# Create and start containers
+
+## Basic Usage
+
+See [Makefile](Makefile) for details.
+
+### Docker container lifecycle
+
+Create and start containers:
+
+```zsh
 % make up
+```
 
-# Stop services
+Stop services:
+
+```zsh
 % make stop
+```
 
-# Stop and remove containers, networks
+Stop and remove containers, networks:
+```zsh
 % make down
+```
 
-# Stop and remove containers, networks, images, volumes
+Stop and remove containers, networks, images, volumes:
+```zsh
 % make destroy
 ```
 
-Development:
-```
-# Open WordPress in your browser
+### Development
+
+Open WordPress in your browser:
+
+```zsh
 % make open
+```
+
+Open WordPress dashboard in your browser:
+```zsh
+% make dashboard
 ```

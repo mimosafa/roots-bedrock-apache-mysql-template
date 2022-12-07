@@ -8,8 +8,8 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 5s
-      retries: 15
+      interval: 3s
+      retries: 20
       timeout: 60s
     volumes:
       - db_store:/var/lib/mysql
@@ -26,6 +26,12 @@ services:
     ports:
       - ${PHP_APACHE_PORT}:80
     volumes:
-      - .:/var/www/html
+      - ./config:/var/www/html/config
+      - ./vendor:/var/www/html/vendor
+      - ./web:/var/www/html/web
+      - ./.env:/var/www/html/.env
+      - ./.env.local:/var/www/html/.env.local
+      - ./wp-cli.yml:/var/www/html/wp-cli.yml
+      - ./wp-install.sh:/tmp/wp-install.sh
 volumes:
   db_store: {}
